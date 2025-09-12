@@ -39,7 +39,7 @@ jobs:
 
       # Publica o JAR gerado como artefato do workflow
       - name: Upload JAR artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cadastro-jogador-jar
           path: target/cadastro-jogador-0.0.1-SNAPSHOT.jar
