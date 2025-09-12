@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Configura Java 21 (tem que ser o corretto ou temurin)
+      # Configura Java 21
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -43,3 +43,4 @@ jobs:
         with:
           name: cadastro-jogador-jar
           path: target/cadastro-jogador-0.0.1-SNAPSHOT.jar
+
