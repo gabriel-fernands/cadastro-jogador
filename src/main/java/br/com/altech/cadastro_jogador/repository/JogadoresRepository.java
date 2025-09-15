@@ -5,11 +5,11 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class JogadorRepository {
+public class CodinomeRepository {
 
     private final JdbcClient jdbcClient;
 
-    public JogadorRepository(JdbcClient jdbcClient) {
+    public CodinomeRepository(JdbcClient jdbcClient) {
         this.jdbcClient = jdbcClient;
     }
     public Jogador salvar(Jogador jogador){
