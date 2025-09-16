@@ -1,15 +1,18 @@
 package br.com.altech.cadastro_jogador.repository;
 
+import br.com.altech.cadastro_jogador.model.GRUPOCODINOME;
 import br.com.altech.cadastro_jogador.model.Jogador;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-public class JogadorRepository {
+public class JogadoresRepository {
 
     private final JdbcClient jdbcClient;
 
-    public JogadorRepository(JdbcClient jdbcClient) {
+    public JogadoresRepository(JdbcClient jdbcClient) {
         this.jdbcClient = jdbcClient;
     }
     public Jogador salvar(Jogador jogador){
@@ -25,5 +28,11 @@ public class JogadorRepository {
                 .param("grupoCodinome", jogador.grupoCodinome())
                 .update();
         return jogador;
+    }
+
+    public List<String> listaCodinomesPorGrupo(GRUPOCODINOME grupocodinome) {
+        return jdbcClient.sql("SELECT distinc(codinomes) FROM JOGADORES WHERE grupo_codinome = :grupoCodinome")
+                .param("grupoCodinome", grupocodinome.getNome())
+                .query(String.class).list();
     }
 }
